@@ -35,12 +35,6 @@ alias localip="ipconfig getifaddr en1"
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 
 
-# custom directories ----------------------------------------------------
-alias lotus="cd /volumes/Lab/localhost/www/wordpress/en/wp-content/themes/lotus"
-alias lotus-template="cd /Volumes/LAB/localhost/www/htmllab/templates/adve"
-alias axiom-plugin-starter="cd /Volumes/lab/localhost/www/wordpress/en/wp-content/plugins/axiom-plugin-starter"
-
-
 # git alises ------------------------------------------------------------
 alias gs="git status"
 alias gb="git branch"
@@ -55,11 +49,11 @@ alias gcm="git commit -m"
 alias gc="git commit"
 alias gch="git checkout"
 
+
 # web server aliases ----------------------------------------------------
 alias amppsStart="sudo /Applications/AMPPS/apache/bin/httpd -k start"
 alias amppsStop="sudo /Applications/AMPPS/apache/bin/httpd -k stop"
 alias amppsRestart="sudo /Applications/AMPPS/apache/bin/httpd -k restart"
-
 
 
 # shell fuctions --------------------------------------------------------
