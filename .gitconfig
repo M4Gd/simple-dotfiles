@@ -6,9 +6,12 @@
 	last = log -n 10
 	whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
     discard = checkout -- .
-	
+    # Show verbose output about tags, branches or remotes
+    tags = tag -l
+    branches = branch -a
+	l   = log --abbrev-commit --date=relative -n 20 --format=format:' > %C(yellow)%h%C(reset) -%C(red)%d%C(reset) %an %C(blue)%cr%C(reset): %C(green)%s%C(reset)'
 	lg  = log --graph --abbrev-commit --decorate --format=format:'%C(red)%h%C(reset) - %C(reset) %C(bold)(%ar)%C(reset) by %C(bold)%an%C(reset) in%C(yellow)%d%C(reset)%n''          %C(green)%s%C(reset)' --all
-	lgs = log --abbrev-commit --date=relative --format=format:'%C(red)%h%C(reset) -%d %an %C(yellow)%cr%C(reset): %C(green)%s%C(reset)'
+	lgs = log --abbrev-commit --date=relative --format=format:' > %C(yellow)%h%C(reset) -%C(red)%d%C(reset) %an %C(blue)%cr%C(reset): %C(green)%s%C(reset)'
 [format]
   pretty = %Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset
   graph = true
@@ -18,12 +21,16 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
-[color "status"]
-  added = blue 
-  changed = yellow 
-  untracked = white ul
+[color "branch"]
+        current = yellow reverse
+        local = yellow
+        remote = green
 [color "diff"]
-  meta = white bold
-  frag = magenta ul 
-  old = red bold
-  new = green bold
+        meta = yellow bold
+        frag = magenta bold
+        old = red bold
+        new = green bold
+[color "status"]
+        added = yellow
+        changed = green
+        untracked = cyan
