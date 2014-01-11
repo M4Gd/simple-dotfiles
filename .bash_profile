@@ -4,23 +4,41 @@
 alias desk="cd ~/Desktop"
 alias ..="cd ../"
 alias ...="cd ../../"
-alias l='ls -a --color=auto'
-alias lc='ls --color=auto'
-# Use a long listing format #
-alias ll='ls -la'
+
+# List all files colorized in long format
+alias l="ls"
 # Show hidden files #
-alias l.='ls -d .* --color=auto'
+alias l.='ls -d .*'
+alias ll="ls -l"
+# List all files colorized in long format, including dot files
+alias la="ls -la"
+# List only directories
 alias lsd='ls -l | grep "^d"'
+# Always use color output for `ls`
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+        alias ls="command ls -G"
+else
+        alias ls="command ls --color"
+        export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
+fi
+
 alias c='pygmentize -O style=monokai -f console256 -g'
 # Empty the Trash on all mounted volumes and the main HDD
-alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash"
+# Also, clear Apple’s System Logs to improve shell startup speed
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
 # Start calculator with math support #
 alias bc='bc -l'
-alias path='echo -e ${PATH//:/\\n}'
 alias now='date +"%T'
 # list all TCP/UDP port on the server #
 alias ports='netstat -tulanp'
 alias tree="find . -print | sed -e 's;[^/]*/;|--;g;s;--|;   |;g'"
+
+# Show/hide hidden files in Finder
+alias show="defaults write com.apple.Finder AppleShowAllFiles -bool true && killall Finder"
+alias hide="defaults write com.apple.Finder AppleShowAllFiles -bool false && killall Finder"
+
+alias o="open"
+alias oo="open ."
 
 # Applications ----------------------------------------------------------
 alias xcode="open -a '/Applications/XCode.app'"
@@ -32,7 +50,8 @@ alias chrome="open -a google\ chrome"
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en1"
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
-
+# Enhanced WHOIS lookups
+alias whois="whois -h whois-servers.net"
 
 # git alises ------------------------------------------------------------
 alias gs="git status"
