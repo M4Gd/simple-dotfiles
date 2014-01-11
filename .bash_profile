@@ -1,10 +1,5 @@
 ## aliases ##############################################################
 
-# custom directories ----------------------------------------------------
-alias lotus="cd /volumes/Lab/localhost/www/wordpress/en/wp-content/themes/lotus"
-alias lotus-template="cd /Volumes/LAB/localhost/www/htmllab/templates/adve"
-alias axiom-plugin-starter="cd /Volumes/lab/localhost/www/wordpress/en/wp-content/plugins/axiom-plugin-starter"
-
 # general ---------------------------------------------------------------
 alias desk="cd ~/Desktop"
 alias ..="cd ../"
