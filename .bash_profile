@@ -1,18 +1,22 @@
 ## aliases ##############################################################
 
+# custom directories ----------------------------------------------------
+alias lotus="cd /volumes/Lab/localhost/www/wordpress/en/wp-content/themes/lotus"
+alias lotus-template="cd /Volumes/LAB/localhost/www/htmllab/templates/adve"
+alias axiom-plugin-starter="cd /Volumes/lab/localhost/www/wordpress/en/wp-content/plugins/axiom-plugin-starter"
+
 # general ---------------------------------------------------------------
 alias desk="cd ~/Desktop"
 alias ..="cd ../"
 alias ...="cd ../../"
 alias l='ls -a --color=auto'
-# Colorize the ls output #
-alias ls='ls --color=auto'
+alias lc='ls --color=auto'
 # Use a long listing format #
 alias ll='ls -la'
 # Show hidden files #
 alias l.='ls -d .* --color=auto'
-alias c='pygmentize -O style=monokai -f console256 -g'
 alias lsd='ls -l | grep "^d"'
+alias c='pygmentize -O style=monokai -f console256 -g'
 # Empty the Trash on all mounted volumes and the main HDD
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash"
 # Start calculator with math support #
@@ -21,7 +25,7 @@ alias path='echo -e ${PATH//:/\\n}'
 alias now='date +"%T'
 # list all TCP/UDP port on the server #
 alias ports='netstat -tulanp'
-alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+alias tree="find . -print | sed -e 's;[^/]*/;|--;g;s;--|;   |;g'"
 
 # Applications ----------------------------------------------------------
 alias xcode="open -a '/Applications/XCode.app'"
