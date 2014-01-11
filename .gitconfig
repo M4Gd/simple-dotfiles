@@ -1,0 +1,29 @@
+[alias]
+	br = branch
+	cm = commit -m
+	cam= commit -a -m
+	graph = log --graph
+	last = log -n 10
+	whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
+    discard = checkout -- .
+	
+	lg  = log --graph --abbrev-commit --decorate --format=format:'%C(red)%h%C(reset) - %C(reset) %C(bold)(%ar)%C(reset) by %C(bold)%an%C(reset) in%C(yellow)%d%C(reset)%n''          %C(green)%s%C(reset)' --all
+	lgs = log --abbrev-commit --date=relative --format=format:'%C(red)%h%C(reset) -%d %an %C(yellow)%cr%C(reset): %C(green)%s%C(reset)'
+[format]
+  pretty = %Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset
+  graph = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[color "status"]
+  added = blue 
+  changed = yellow 
+  untracked = white ul
+[color "diff"]
+  meta = white bold
+  frag = magenta ul 
+  old = red bold
+  new = green bold
