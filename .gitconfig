@@ -2,7 +2,10 @@
 	br = branch
 	cm = commit -m
 	cam= commit -a -m
+	st = status
 	graph = log --graph
+	dw = diff --word-diff
+	aliases= config --list | grep alias
 	last = log -n 10
 	whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
     discard = checkout -- .
@@ -17,10 +20,10 @@
   graph = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+[color]
+		branch = auto
+		diff = auto
+		status = auto
 [color "branch"]
         current = yellow reverse
         local = yellow
